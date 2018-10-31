@@ -11,6 +11,7 @@ for i in predict_value_pool:
     data = {"predict" : i}
     answer = requests.post(url + "1", data=json.dumps(data), headers=headers)
     response = answer.json()
+    print(response)
     assert answer.status_code == 200
     assert response['version'] == 1
     assert response['predict'] == i
