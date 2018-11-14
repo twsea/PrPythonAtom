@@ -48,24 +48,23 @@ class PrefixTree:
             else:
                 return False
         return True
+
     def show_tree(self):
         w = self.root
         s = ''
+        p = [] #выводит массив со словами
         for key in w[0]:
-            print(self.recur(w,s,key))
+            self.recur(p, w,s,key)
+        print(p)
 
-    def recur (self,w,string, key): #обход дерева
+    def recur (self, array, w,string, key): #обход дерева
         string = string + key
-        #print(string)
-        #print(list(w[0][key][0].keys()))
-        #print(key)
         if len(list(w[0][key][0].keys())) == 0: #если внутренний словарь пуст, значит это последняя буква слова
-            return string
+            array.append(string)
         else:
             w = w[0][key] #иначе переходим по текущему ключу в его внутренний словарь
             for m in list(w[0].keys()): #перебираем все ключи во внутреннем словаре
-                return self.recur(w,string,m) 
-        #запустить цикл который будет засовывать сюда же все ключи из массива ключей
+                self.recur(array, w,string,m)
     
     def top_10 (self, string):
         pass
