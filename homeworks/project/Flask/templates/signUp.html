@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<script src="static/js/m2.js"></script>
-	</head>
+	</head>http://127.0.0.1:5000
    <body>
 		<datalist id="languages">
 			<option value="HTML">
@@ -21,7 +21,8 @@
 		 <h2 class="form-signin-heading">Введите название фильма, качество которого хотите узнать</h2>
          <p>Название фильма: <input type = "text" name = "Name" list = "languages"/></p>
 		 <p><input onclick = 'javascript:create()' type = "submit" value = "Click" /></p>
-      </form>
-      
+		</form>
+		{{result = flask_prefix_tree.init_prefix_tree('info.txt').top_10(string)}}
+		<p> {{ result[0] }} </p>
    </body>
 </html>
